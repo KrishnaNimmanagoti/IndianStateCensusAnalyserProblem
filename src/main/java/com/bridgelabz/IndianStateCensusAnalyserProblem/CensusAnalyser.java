@@ -45,5 +45,8 @@ public class CensusAnalyser {
         } catch (IOException exception) {
             throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.CODE_FILE_PROBLEM);
         }
+         catch (RuntimeException exception) {
+             throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.WRONG_FILE_DELIMITER);
+         }
     }
 }
