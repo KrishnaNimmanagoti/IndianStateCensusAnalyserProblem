@@ -46,6 +46,9 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.CODE_FILE_PROBLEM);
         }
          catch (RuntimeException exception) {
+             if (exception.getMessage().contains("header")) {
+                 throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.WRONG_FILE_HEADER);
+             }
              throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.WRONG_FILE_DELIMITER);
          }
     }
